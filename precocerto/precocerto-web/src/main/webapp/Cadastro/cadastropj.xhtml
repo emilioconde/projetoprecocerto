@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="modelo.xhtml">
+	<ui:define name="pageTitle">Title</ui:define>
+	<!--  <ui:define name="pageHeader">Segurança Java</ui:define>-->
+	<ui:define name="body" >
+	<style type="text/css">
+.datalist-noborder .ui-widget-content {
+border: none;
+}
+.alignTop {
+vertical-align: top;
+}
+.transparentes .ui-state-default, .transparentes .ui-widget-content .ui-state-default, .transparentes .ui-widget-header .ui-state-default {
+background:green;
+width: 300px;
+}
+</style>
+<form>
+<h:panelGrid columns="2" columnClasses="alignTop,alignTop">		
+	<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Anunciante: " />
+					<p:inputText />
+
+					<h:outputText value="Telefone: " />  
+            		<p:inputText />
+
+					<h:outputText value="E-mail: " />
+					<p:inputText />
+					
+					<h:outputText value="URL(site): " />
+					<p:inputText />
+					
+					<h:outputText value="Contatos: " />
+					<p:dataTable id="cars" var="car" value="#{tableBean.mediumCarsModel}" paginator="false" rows="10"
+						selection="#{tableBean.selectedCar}" selectionMode="single" >
+
+						
+						<p:column headerText="Tipo">
+            			
+        				</p:column>
+						<p:column headerText="Contato">
+            			
+        				</p:column>
+						 <f:facet name="footer">
+         					<p:commandLink value="Adicionar novo"  process="@this" update="cars"/>
+     					</f:facet>
+					</p:dataTable>
+					<h:outputText value="Endereços: " />
+					<p:dataTable id="cars2" var="car" value="#{tableBean.mediumCarsModel}" paginator="false" rows="10"
+						selection="#{tableBean.selectedCar}" selectionMode="single" >
+
+						
+						<p:column headerText="Endereço">
+            			
+        				</p:column>
+						<p:column headerText="Número">
+            			
+        				</p:column>
+        				<p:column headerText="Bairro">
+            			
+        				</p:column>
+        				
+						 <f:facet name="footer">
+         					<p:commandLink value="Adicionar novo"  process="@this" update="cars2"/>
+     					</f:facet>
+					</p:dataTable>
+					
+					<h:inputHidden/>
+					<p:commandButton value="Enviar" />
+	</h:panelGrid>	
+</h:panelGrid>
+<p:dialog widgetVar="dlg1" width="625" height="400" modal="true">
+			
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Tipo: " />
+					<p:inputText />
+
+					<h:outputText value="Contato: " />  
+            		<p:inputText />
+            							
+					<p:commandButton value="Limpar" type="reset" />
+					<p:commandButton value="Enviar" />
+
+				</h:panelGrid>
+</p:dialog>
+<p:dialog widgetVar="dlg2" width="625" height="400" modal="true">
+			
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Endereço: " />
+					<p:inputText />
+
+					<h:outputText value="Número " />  
+            		<p:inputText />
+
+					<h:outputText value="Bairro: " />
+					<p:inputText />
+
+					<h:outputText value="CEP: " />
+					<p:inputText />
+					
+					<h:outputText value="Localidade: " />
+					<p:inputText />
+					
+					<h:outputText value="UF: " />
+					<p:inputText />					
+					
+					<p:commandButton value="Deletar" type="reset" />
+					<p:commandButton value="Salvar" />
+
+				</h:panelGrid>
+</p:dialog>
+</form>
+	</ui:define>	
+</ui:composition>
+</html>

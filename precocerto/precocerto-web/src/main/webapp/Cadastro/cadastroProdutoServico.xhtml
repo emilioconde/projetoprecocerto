@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="modelo.xhtml">
+	<ui:define name="pageTitle">Title</ui:define>
+	<!--  <ui:define name="pageHeader">Segurança Java</ui:define>-->
+	<ui:define name="body" >
+	<style type="text/css">
+.datalist-noborder .ui-widget-content {
+border: none;
+}
+.alignTop {
+vertical-align: top;
+}
+.transparentes .ui-state-default, .transparentes .ui-widget-content .ui-state-default, .transparentes .ui-widget-header .ui-state-default {
+background:green;
+width: 300px;
+}
+</style>
+<form>
+<p:dataTable id="cars0" var="car" value="#{produtosServicosBean.carsSmall}" paginator="true" rows="2"
+						 >
+
+						 <f:facet name="header">  
+            			Promoções
+       					</f:facet> 
+       					<p:column headerText="Código">
+            			sss
+        				</p:column>
+						<p:column headerText="Nome">
+            			ee
+        				</p:column>
+						<p:column headerText="Descrição">
+            									
+        				</p:column>
+        				<p:column headerText="Unidade">
+            			eer
+        				</p:column>
+        				<p:column headerText="Tipo">
+            			eey
+        				</p:column>
+        				<p:column headerText="Inicio">
+            			ee3
+        				</p:column>
+        				<p:column headerText="Fim">
+            			eek
+        				</p:column>
+        				
+        				
+        				<p:column headerText="Ação">
+        					
+        						<p:commandLink value="Remover"  process="@this" update="cars0"/>
+         					
+         					<p:spacer width="10"/>
+         					
+         						<p:commandLink value="Editar"  process="@this" update="cars0"/>
+        					
+        				</p:column>
+						 <f:facet name="footer">
+						
+         					
+         					<p:commandLink value="Excluir"  process="@this" update="cars0"/>
+         				
+     					</f:facet>
+					</p:dataTable>
+					
+					<h:panelGrid columns="2" columnClasses="alignTop,alignTop">		
+					<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Nome " />
+					<p:inputText />
+
+					<h:outputText value="Descrição: " />  
+            		<p:inputText />
+
+					<h:outputText value="Unidade: " />
+					<p:inputText />
+					
+					<h:outputText value="Tipo: " />
+					<p:inputText />			
+					<h:outputText value="Produto/Serviço: " />
+					<p:dataTable id="cars3" var="car" value="#{tableBean.mediumCarsModel}" paginator="false" rows="10"
+						selection="#{tableBean.selectedCar}" selectionMode="single" >
+
+						
+						<p:column headerText="Endereço">
+            			
+        				</p:column>
+						<p:column headerText="Número">
+            			
+        				</p:column>
+        				<p:column headerText="Bairro">
+            			
+        				</p:column>
+        				
+						 <f:facet name="footer">
+         					<p:commandLink value="Alterar"  process="@this" update="cars3"/>
+     					</f:facet>
+					</p:dataTable>
+					<h:outputText value="Endereços: " />
+					<p:dataTable id="cars2" var="car" value="#{tableBean.mediumCarsModel}" paginator="false" rows="10"
+						selection="#{tableBean.selectedCar}" selectionMode="single" >
+
+						
+						<p:column headerText="Endereço">
+            			
+        				</p:column>
+						<p:column headerText="Número">
+            			
+        				</p:column>
+        				<p:column headerText="Bairro">
+            			
+        				</p:column>
+        				
+						 <f:facet name="footer">
+         					<p:commandLink value="Adicionar novo"  process="@this" update="cars2"/>
+     					</f:facet>
+					</p:dataTable>
+					
+					<h:inputHidden/>
+					<p:commandButton value="Enviar" />
+
+	</h:panelGrid>
+	
+</h:panelGrid>
+</form>
+	</ui:define>	
+</ui:composition>
+</html>

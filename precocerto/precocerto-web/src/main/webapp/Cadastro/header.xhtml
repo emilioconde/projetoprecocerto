@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+    <body background="#E4EBEB">	   
+	    <ui:composition>
+ 	
+		
+		<h:form id="form" >  		
+        <style>
+  .c1{background-color:#E4EBEB; border-style: hidden}
+  .c2{background-color:#E4EBEB; border-style: hidden}
+  .c3{background-color:#E4EBEB; border-style: hidden}
+  .semBorda tr, .semBorda td {
+	border: none !important;}
+.dataList .ui-datalist-data{
+border: none;
+background: transparent;
+background-image: none;
+
+}
+</style>
+
+        <p:panelGrid columns="3"  columnClasses="c1,c2,c3" styleClass="semBorda">
+            
+            <p:autoComplete value="#{autoCompleteBean.selectedPlayer1}" id="basicPojo" completeMethod="#{autoCompleteBean.completePlayer}"
+                        var="p" itemLabel="#{p.name}" itemValue="#{p}" converter="player" forceSelection="true" />
+                        <h:selectOneMenu  value="1">
+                        	<f:selectItem itemLabel="Produto" itemValue="Bold" />  
+        					<f:selectItem itemLabel="Serviço" itemValue="Bold" />  
+        					<f:selectItem itemLabel="U" itemValue="Bold" />                          
+                        </h:selectOneMenu>
+            <h:commandButton title="Buscar" value="Buscar" update="" oncomplete=""/>  
+            
+        </p:panelGrid>
+        
+
+    <br/>
+   
+  
+   
+
+    
+</h:form>
+ 
+	    </ui:composition>	    
+    </body>
+</html>

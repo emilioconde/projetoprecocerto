@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="modelo.xhtml">
+	<ui:define name="pageTitle">Title</ui:define>
+	<!--  <ui:define name="pageHeader">Segurança Java</ui:define>-->
+	<ui:define name="body" >
+	<style type="text/css">
+.datalist-noborder .ui-widget-content {
+border: none;
+}
+.alignTop {
+vertical-align: top;
+}
+.transparentes .ui-state-default, .transparentes .ui-widget-content .ui-state-default, .transparentes .ui-widget-header .ui-state-default {
+background:green;
+width: 300px;
+}
+</style>
+<h:panelGrid columns="2" columnClasses="alignTop,alignTop">		
+	<p:accordionPanel multiple="true" styleClass="transparentes" >
+	<style>
+	.ui-widget-content .ui-state-default{
+	background:green;
+	}
+	</style>
+	<p:tab title="Godfather Part I" >
+		<h:panelGrid columns="1" cellpadding="10" styleClass="">			
+			<h:outputText
+				value="The story begins as" />
+		</h:panelGrid>
+	</p:tab>
+	<p:tab title="Godfather Part II">
+		<h:panelGrid columns="1" cellpadding="10">			
+			<h:outputText value="Francis Ford Coppola's " />
+		</h:panelGrid>
+	</p:tab>
+	<p:tab title="Godfather Part III">
+		<h:panelGrid columns="1" cellpadding="10">			
+			<h:outputText value="After a breakpletely legitimate." />
+		</h:panelGrid>
+	</p:tab>
+</p:accordionPanel>
+
+
+	<p:dataList value="#{produtosServicosBean.carsSmall}" var="car" type="definition" styleClass="datalist-noborder">
+	    <h:panelGrid columns="2" cellpadding="20" cellspacing="20">
+	    		   	<h:panelGrid columns="1" cellpadding="0">
+            			<h:graphicImage id="playerImg" value="/images/1.jpg"/>
+						<h:link value="Detalhes" />				
+					</h:panelGrid>
+            <h:panelGrid columns="3" cellpadding="10" >
+            	<h:panelGrid columns="1" cellpadding="0">
+                	<h:outputText value="Pãozinho fances " />
+                	<h:outputText value="peso: 50g" style="font-weight: bold"/>                	
+				</h:panelGrid>
+				<h:panelGrid columns="1" cellpadding="0">
+                	<h:outputText value="Number: " />
+                	<h:outputText id="carNumber" value="#{car.number}" style="font-weight: bold"/>
+				</h:panelGrid>
+				<h:panelGrid columns="1" cellpadding="0">
+               		<h:outputText value="Padaria Contância " />
+                	<h:outputText value="Apoiamos cau. " style="font-weight: bold"/>
+               		<p:rating value="4"  stars="5" cancel="false" onRate="alert('You rated ' + value)"/>
+                </h:panelGrid>            		
+            </h:panelGrid>
+        </h:panelGrid>
+	</p:dataList>
+	
+	
+	</h:panelGrid>
+	</ui:define>	
+</ui:composition>
+</html>
